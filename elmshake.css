@@ -1,0 +1,17 @@
+.red {
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  background-color: red;
+}
+
+.green {
+    height: 200px;
+    width: 200px;
+    line-height: 200px;
+    background-color: green;
+    margin: 0 auto;
+    text-align: center;
+    color: #FFF;
+    font-size: 38px;
+}

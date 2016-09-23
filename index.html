@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Randomit</title>
+        <!-- To include only some csshake animations use this syntax -->
+        <link rel="stylesheet" type="text/css" href="elmshake.css">
+    </head>
+    <body>
+        <!-- <div class="red"></div> -->
+
+        <div class="green"></div>
+
+        <button type="button" name="button">Kocok</button>
+        <div style="padding: 10px 5px">
+            <textarea name="name" rows="12" cols="80" id="textname"></textarea>
+        </div>
+    </body>
+    <script src="jquery.min.js"></script>
+    <script src="shakejs.js"></script>
+    <script type="text/javascript">
+    var randomit = {
+        posA : $('.green'),
+        orangArr : [],
+        timeVal : 200,
+        init : function() {
+            var kocok = setInterval(function () {randomit.getName()}, 200)
+
+            setTimeout(function(){
+                clearInterval(kocok)
+                kocok = setInterval(function () {randomit.getName()}, 100)
+            },1100)
+            setTimeout(function(){
+                clearInterval(kocok)
+                kocok = setInterval(function () {randomit.getName()}, 50)
+            },2000)
+            setTimeout(function(){
+                clearInterval(kocok)
+                kocok = setInterval(function () {randomit.getName()}, 10)
+            },3500)
+            setTimeout(function(){
+                clearInterval(kocok)
+                kocok = setInterval(function () {randomit.getName()}, 100)
+            },6000)
+            setTimeout(function(){
+                clearInterval(kocok)
+                kocok = setInterval(function () {randomit.getName()}, 300)
+            },7000)
+            setTimeout(function(){
+                clearInterval(kocok)
+                shake(document.querySelector('.green'), 20, true);
+
+                var terpilih = $('.green').html()
+                var ater = randomit.orangArr.indexOf(terpilih);
+                delete randomit.orangArr[ater];
+                console.log(randomit.orangArr)
+            },10000)
+        },
+        getName : function() {
+            var orang = randomit.orangArr
+            var randNum = Math.floor(Math.random() * orang.length)
+            var lucky = orang[randNum]
+
+            $(this.posA).text(lucky)
+
+        }
+    }
+    $('button').click(function(){
+        randomit.orangArr = $('#textname').val().split(',')
+        randomit.init()
+    })
+
+    </script>
+</html>
